@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <!-- FONT -->
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <title>Frontend Mentor | Intro component with sign up form</title>
+  </head>
+
+  <body>
+    <div class="main clearfix">
+      
+      <div class="wrapper clearfix">
+        <div class="brief">
+          <h1>Learn to code by watching others</h1>
+          <p>
+            See how experienced developers solve problems in real-time.
+            Watching scripted tutorials is great, but understanding how
+            developers think is invaluable.
+          </p>
+        </div>
+        <div class='signup'>
+          <a href="http:/localhost:3000/#"><span>Try it free 7 days</span> then $20/mo. thereafter</a>
+          <div class='signup__form'>
+            <form class="form" id="form-1">
+              <div class="form-group">
+                <input id="firstName" class="form-control" type="text" placeholder="First Name" />
+                <img class="imgError remove" src="./images/icon-error.svg"/>
+                <span class="form-message"></span>
+              </div>
+              <div class="form-group">
+                <input id="lastName" class="form-control" type="text" placeholder="Last Name" />
+                <img class="imgError remove" src="./images/icon-error.svg"/>
+                <span class="form-message"></span>
+              </div>
+              <div class="form-group">
+                <input id="email" class="form-control" type="email" placeholder="Email Address" />
+                <img class="imgError remove" src="./images/icon-error.svg"/>
+                <span class="form-message"></span>
+              </div>
+              <div class="form-group">
+                <input id="password" class="form-control" type="password" placeholder="Password" />
+                <img class="imgError remove" src="./images/icon-error.svg"/>
+                <span class="form-message"></span>
+              </div>
+              <button>Claim your free trail</button>
+              <p>By clicking the button, you are agreeing to our <span>Terms and Services</span></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./validator.js"></script>
+    <script>
+      // Expect
+      Validator({
+        form:"#form-1",
+        errorSelector: ".form-message",
+        imgError: '.imgError',
+        rules: [
+          Validator.isRequired('#firstName', "First Name"),
+          Validator.isRequired('#lastName', "Last Name"),
+          Validator.isRequired('#password', "Password"),
+          Validator.isEmail('#email')
+        ]
+      })
+    </script>
+  </body>
+
+</html>
